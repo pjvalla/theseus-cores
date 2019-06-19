@@ -108,7 +108,7 @@ private:
         UHD_VAR(taps_fi.size());
         uint32_t num_taps_read;
         num_taps_read = user_reg_read32("RB_NUM_TAPS");
-        UHD_LOG_TRACE(unique_id(), "num_taps = %d\n", (int) num_taps_read);
+        UHD_LOG_TRACE(unique_id(), boost::format("num_taps = %d") % (int) num_taps_read);
         for (size_t i = 0; i < taps_fi.size() - 1; i++) {
             sr_write(SR_RELOAD, boost::uint32_t(taps_fi[i]));
             // UHD_LOG_TRACE(unique_id(), "tap[%d] = %d\n", (int) i, (int) boost::uint32_t(taps_fi[i]));
